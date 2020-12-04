@@ -14,12 +14,15 @@ public class Cliente implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotNull
+
+    @Column(nullable = false)
     private String nombres;
-    @NotNull
+
+    @Column(nullable = false)
     private String apellidos;
     @Email
     @NotNull
+    @Column(unique = true, nullable = false)
     private String email;
     @Column(name = "create_at")
     @Temporal(TemporalType.DATE)
